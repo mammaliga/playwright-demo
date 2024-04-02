@@ -8,11 +8,11 @@ test.describe("test suite #1", () => {
     test.beforeEach(async ({page}) => {
         await page.getByRole("link", {name: "Forms"}).click()
     })
-    test.skip("test case #1", async ({page}) => {
+    test("go to datepicker section", async ({page}) => {
         await page.getByRole("link", {name: "Datepicker"}).click()
         await page.locator("nb-card").getByRole("textbox", {name: "Form Picker"}).click()
     })
-    test("test case #2", async ({page}) => {
+    test("filling inputs and sumbitting", async ({page}) => {
         await page.getByRole("link", {name: "Form Layouts"}).click()
         const blockForm = page.locator("nb-card").filter({hasText: "Block Form"})
         await blockForm.getByRole("textbox", {name: "First Name"}).fill("manuel")
@@ -31,6 +31,9 @@ test.describe("test suite #1", () => {
         expect(website).toEqual("https://mamaliga.co")
 
         await blockForm.getByRole("button").click()
+    })
+    test("assertions", async ({page}) => {
+        
     })
 
 })
